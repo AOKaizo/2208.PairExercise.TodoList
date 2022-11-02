@@ -6,6 +6,8 @@ const Todos = () => {
   const todos = useSelector((state) => state.todos.todos);
 
   return (
+    <>
+    <Link to='/todos/create'>Create A New Todo</Link>
     <ul>
       {todos.map((todo) => {
         return (
@@ -18,6 +20,7 @@ const Todos = () => {
         );
       })}
     </ul>
+      </>
   );
 };
 

@@ -5,6 +5,7 @@ import CreateTodo from './CreateTodo';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTodos } from '../store/todosSlice';
 import axios from 'axios';
+import EditTodo from './EditTodo';
 
 const App = () => {
   const todos = useSelector(state => state.todos.todos);
@@ -24,10 +25,10 @@ const App = () => {
       <h1>
         <Link to='/'>Todos ({todos.length})</Link>
       </h1>
-      <Link to='/todos/create'>Create A New Todo</Link>
       <Routes>
         <Route path='/todos/create' element={<CreateTodo />} />
         <Route path='/' element={<Todos />} />
+        <Route path="/todos/:id" element={<EditTodo todos={todos}/>} />
       </Routes>
     </div>
   );
